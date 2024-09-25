@@ -33,6 +33,10 @@ Este é um projeto desenvolvimento na Cadeira de Programação Orientada a Objet
 </table>
  <br>
 
+## Diagrama de Classe:
+![Diagrama sem nome](https://github.com/user-attachments/assets/a0efc783-eb61-4297-ba08-8e3049b5afe5)
+ 
+
 ## Funcionalidades
 
 - Criar tarefas simples e importantes.
