@@ -1,22 +1,38 @@
 public class Main {
     public static void main(String[] args) {
-        Biblioteca biblioteca = new Biblioteca();
+        // Criando o Gerenciador de Tarefas
+        GerenciadorTarefas gerenciador = new GerenciadorTarefas();
 
-        Cliente cliente = new Cliente("Ana Carolina", "1234");
-        Bibliotecario bibliotecario = new Bibliotecario("Cardeal", "admin");
+        // Criando usuários
+        Usuario usuario1 = new Usuario("Caca");
+        Usuario usuario2 = new Usuario("Junior");
 
-        biblioteca.adicionarUsuario(cliente);
-        biblioteca.adicionarUsuario(bibliotecario);
+        // Criando e adicionando tarefas
+        usuario1.criarTarefa(gerenciador, "Estudar POO", "Estudar conceitos de POO", Prioridade.ALTA);
+        usuario2.criarTarefa(gerenciador, "Finalizar Projeto", "Trabalho final de POO", Prioridade.MEDIA);
 
-        biblioteca.listarUsuarios();
+        // Criando uma tarefa importante com responsável
+        TarefaImportante tarefaImportante = new TarefaImportante("Apresentar Projeto",
+                "Apresentação do projeto de POO", Prioridade.ALTA, usuario1);
+        gerenciador.adicionarTarefa(tarefaImportante);
 
-        Livro livro = new Livro("Programação Orientada a Objeto", "Autor Gilvan");
+        // Listar todas as tarefas
+        System.out.println("Tarefas no sistema:");
+        gerenciador.listarTarefas();
 
-        bibliotecario.adicionarLivro(livro);  // Adiciona o livro ao catálogo
-        bibliotecario.removerLivro(livro);    // Remove o livro do catálogo
-        
-        // Polimorfismo
-        cliente.exibirPermissoes();
-        bibliotecario.exibirPermissoes();
+        // Polimorfismo - exibindo detalhes das tarefas
+        System.out.println("\nExibindo detalhes de uma tarefa com polimorfismo:");
+        tarefaImportante.exibirDetalhes();
+
+        // Remover uma tarefa
+        Tarefa tarefaRemover = new TarefaSimples("Estudar POO", "Estudar conceitos de POO", Prioridade.ALTA);
+            gerenciador.removerTarefa(tarefaRemover);
+
+        // Listar tarefas após a remoção
+        System.out.println("\nTarefas restantes no sistema após remoção:");
+        gerenciador.listarTarefas();
+
+        // Exibir o número total de tarefas criadas
+        System.out.println("\nTotal de tarefas criadas: " + GerenciadorTarefas.getTotalTarefas());
     }
 }

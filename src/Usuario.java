@@ -1,15 +1,16 @@
-public abstract class Usuario {
+public class Usuario {
     private String nome;
-    private String senha;
 
-    public Usuario(String nome, String senha) {
+    public Usuario(String nome) {
         this.nome = nome;
-        this.senha = senha;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public abstract void exibirPermissoes();
+    public void criarTarefa(Gerenciavel gerenciador, String titulo, String descricao, Prioridade prioridade) {
+        Tarefa tarefa = new TarefaSimples(titulo, descricao, prioridade);
+        gerenciador.adicionarTarefa(tarefa);
+    }
 }

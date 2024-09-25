@@ -1,4 +1,4 @@
 public interface Gerenciavel {
-    void adicionarLivro(Livro livro);
-    void removerLivro(Livro livro);
+    void adicionarTarefa(Tarefa tarefa);
+    void removerTarefa(Tarefa tarefa);
 }
